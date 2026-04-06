@@ -724,6 +724,8 @@ h4 { font-size: 1rem; font-weight: 700; }
 /* ===== ROLE MODALS ===== */
 .role-item {
   cursor: pointer;
+  touch-action: manipulation; /* Prevent iOS double-tap delay */
+  -webkit-tap-highlight-color: transparent;
 }
 .role-hint {
   display: block;
