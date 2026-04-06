@@ -1,0 +1,315 @@
+[
+  {
+    "id": "task-chairs",
+    "title": "Task Chairs",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "ISEO",
+        "brand": "Task Chair",
+        "src": "assets/images/catalogue/task-chairs-iseo.png"
+      },
+      {
+        "name": "TRINETIC",
+        "brand": "Task Chair",
+        "src": "assets/images/catalogue/task-chairs-trinetic.png"
+      },
+      {
+        "name": "SIA",
+        "brand": "Task Chair",
+        "src": "assets/images/catalogue/task-chairs-sia.png"
+      },
+      {
+        "name": "KARA",
+        "brand": "Task Chair",
+        "src": "assets/images/catalogue/task-chairs-kara.png"
+      },
+      {
+        "name": "HAFF",
+        "brand": "Task Chair",
+        "src": "assets/images/catalogue/task-chairs-haff.png"
+      },
+      {
+        "name": "OKAMURA",
+        "brand": "Task Chair",
+        "src": "assets/images/catalogue/task-chairs-okamura.png"
+      }
+    ]
+  },
+  {
+    "id": "sofas-lounge",
+    "title": "Sofas",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "LOLA",
+        "brand": "Sofa",
+        "src": "assets/images/catalogue/sofas-lounge-lola.png"
+      },
+      {
+        "name": "RIA",
+        "brand": "Sofa",
+        "src": "assets/images/catalogue/sofas-lounge-ria.png"
+      },
+      {
+        "name": "QUINN",
+        "brand": "Sofa",
+        "src": "assets/images/catalogue/sofas-lounge-quinn.png"
+      },
+      {
+        "name": "BODIE",
+        "brand": "Sofa",
+        "src": "assets/images/catalogue/sofas-lounge-bodie.png"
+      },
+      {
+        "name": "FRANK",
+        "brand": "Sofa",
+        "src": "assets/images/catalogue/sofas-lounge-frank.png"
+      },
+      {
+        "name": "LOLA",
+        "brand": "Sofa",
+        "src": "assets/images/catalogue/sofas-lounge-lola.png"
+      }
+    ]
+  },
+  {
+    "id": "banquette",
+    "title": "Meeting Chairs",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "FLOW",
+        "brand": "Meeting Chair",
+        "src": "assets/images/catalogue/banquette-flow.png"
+      },
+      {
+        "name": "KIND",
+        "brand": "Meeting Chair",
+        "src": "assets/images/catalogue/banquette-kind.png"
+      },
+      {
+        "name": "ACCORD",
+        "brand": "Meeting Chair",
+        "src": "assets/images/catalogue/banquette-accord.png"
+      },
+      {
+        "name": "UNO",
+        "brand": "Meeting Chair",
+        "src": "assets/images/catalogue/banquette-uno.png"
+      },
+      {
+        "name": "OLA",
+        "brand": "Meeting Chair",
+        "src": "assets/images/catalogue/banquette-ola.png"
+      },
+      {
+        "name": "TOTO",
+        "brand": "Meeting Chair",
+        "src": "assets/images/catalogue/banquette-toto.png"
+      }
+    ]
+  },
+  {
+    "id": "meeting-tables",
+    "title": "Meeting Tables",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "TIPO",
+        "brand": "Tables",
+        "src": "assets/images/catalogue/meeting-tables-tipo.png"
+      },
+      {
+        "name": "PYRAMID STEEL",
+        "brand": "Tables",
+        "src": "assets/images/catalogue/meeting-tables-pyramid-steel.png"
+      },
+      {
+        "name": "CIRRUS",
+        "brand": "Tables",
+        "src": "assets/images/catalogue/meeting-tables-cirrus.png"
+      },
+      {
+        "name": "CO STORIES",
+        "brand": "Tables",
+        "src": "assets/images/catalogue/meeting-tables-co-stories.png"
+      },
+      {
+        "name": "AIR",
+        "brand": "Tables",
+        "src": "assets/images/catalogue/meeting-tables-air.png"
+      },
+      {
+        "name": "PYRAMID WOOD",
+        "brand": "Tables",
+        "src": "assets/images/catalogue/meeting-tables-pyramid-wood.png"
+      }
+    ]
+  },
+  {
+    "id": "meeting-pods",
+    "title": "Meeting Pods",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "BOB",
+        "brand": "Meeting Pods",
+        "src": "assets/images/catalogue/meeting-pods-bob.png"
+      },
+      {
+        "name": "MEWS",
+        "brand": "Meeting Pods",
+        "src": "assets/images/catalogue/meeting-pods-mews.png"
+      },
+      {
+        "name": "MII",
+        "brand": "Meeting Pods",
+        "src": "assets/images/catalogue/meeting-pods-mii.png"
+      },
+      {
+        "name": "BODYN",
+        "brand": "Meeting Pods",
+        "src": "assets/images/catalogue/meeting-pods-bodyn.png"
+      },
+      {
+        "name": "HYDE",
+        "brand": "Meeting Pods",
+        "src": "assets/images/catalogue/meeting-pods-hyde.png"
+      },
+      {
+        "name": "CHAMELEON",
+        "brand": "Meeting Pods",
+        "src": "assets/images/catalogue/meeting-pods-chameleon.png"
+      }
+    ]
+  },
+  {
+    "id": "high-tables",
+    "title": "High Tables",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "ALTA",
+        "brand": "High Tables",
+        "src": "assets/images/catalogue/high-tables-alta.png"
+      },
+      {
+        "name": "PRYAMID STEEL",
+        "brand": "High Tables",
+        "src": "assets/images/catalogue/high-tables-pryamid-steel.png"
+      },
+      {
+        "name": "DRAFT",
+        "brand": "High Tables",
+        "src": "assets/images/catalogue/high-tables-draft.png"
+      },
+      {
+        "name": "DELTA",
+        "brand": "High Tables",
+        "src": "assets/images/catalogue/high-tables-delta.png"
+      },
+      {
+        "name": "SPIN",
+        "brand": "High Tables",
+        "src": "assets/images/catalogue/high-tables-spin.png"
+      },
+      {
+        "name": "PYRAMID WOOD",
+        "brand": "High Tables",
+        "src": "assets/images/catalogue/high-tables-pyramid-wood.png"
+      }
+    ]
+  },
+  {
+    "id": "storage",
+    "title": "High Stools",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "BJORN",
+        "brand": "High Stools",
+        "src": "assets/images/catalogue/storage-bjorn.png"
+      },
+      {
+        "name": "SLING",
+        "brand": "High Stools",
+        "src": "assets/images/catalogue/storage-sling.png"
+      },
+      {
+        "name": "DARCY",
+        "brand": "High Stools",
+        "src": "assets/images/catalogue/storage-darcy.png"
+      },
+      {
+        "name": "KITT",
+        "brand": "High Stools",
+        "src": "assets/images/catalogue/storage-kitt.png"
+      },
+      {
+        "name": "FAY",
+        "brand": "High Stools",
+        "src": "assets/images/catalogue/storage-fay.png"
+      },
+      {
+        "name": "LORIA",
+        "brand": "High Stools",
+        "src": "assets/images/catalogue/storage-loria.png"
+      }
+    ]
+  },
+  {
+    "id": "acoustics",
+    "title": "Acoustics",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "Morph Baffles",
+        "brand": "Acoustics Company",
+        "src": ""
+      },
+      {
+        "name": "Square Tiles",
+        "brand": "Acoustics Company",
+        "src": ""
+      },
+      {
+        "name": "Alpha Panels",
+        "brand": "Acoustics Company",
+        "src": ""
+      },
+      {
+        "name": "Breeze Baffles",
+        "brand": "Allsfar",
+        "src": ""
+      }
+    ]
+  },
+  {
+    "id": "educational",
+    "title": "Educational Furniture",
+    "subtitle": "",
+    "cards": [
+      {
+        "name": "Classroom Table",
+        "brand": "ORN",
+        "src": ""
+      },
+      {
+        "name": "Student Chair",
+        "brand": "ORN",
+        "src": ""
+      },
+      {
+        "name": "Millie Storage",
+        "brand": "Sixteen3",
+        "src": ""
+      },
+      {
+        "name": "Student Lockers",
+        "brand": "Bisley",
+        "src": ""
+      }
+    ]
+  }
+]
