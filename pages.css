@@ -135,10 +135,11 @@
   transform: translateY(-2px);
 }
 .value-num {
-  display: inline-block;
-  font-size: 0.85rem;
+  display: block;
+  font-size: 4rem;
   font-weight: 800;
   color: var(--color-accent);
+  line-height: 1;
   margin-bottom: 12px;
 }
 .value-card h3 {
