@@ -621,12 +621,7 @@ h4 { font-size: 1rem; font-weight: 700; }
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--color-secondary);
-  transition: all var(--transition);
-}
-.area-tag:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  background: var(--color-accent-light);
+  cursor: default;
 }
 
 /* ===== CTA ===== */
