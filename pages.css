@@ -62,6 +62,15 @@
   background: var(--color-bg-dark);
   color: #fff;
 }
+.content-section.bg-dark h2 {
+  color: #fff;
+}
+.content-section.bg-dark .section-label {
+  color: var(--color-accent);
+}
+.content-section.bg-dark .section-subtitle {
+  color: rgba(255,255,255,0.5);
+}
 
 .text-center {
   text-align: center;
@@ -142,7 +151,7 @@
   display: block;
   font-size: 4rem;
   font-weight: 800;
-  color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
   line-height: 1;
   margin-bottom: 12px;
 }
