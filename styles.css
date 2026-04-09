@@ -186,7 +186,7 @@ h4 { font-size: 1rem; font-weight: 700; }
 }
 .main-nav {
   display: flex;
-  gap: 32px;
+  gap: 4px;
   flex: 1;
   justify-content: center;
 }
@@ -194,21 +194,15 @@ h4 { font-size: 1rem; font-weight: 700; }
   font-size: 0.85rem;
   font-weight: 400;
   color: var(--color-secondary);
-  transition: color var(--transition);
-  position: relative;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition: all var(--transition);
 }
-.main-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-accent);
-  transition: width var(--transition);
+.main-nav a:hover {
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
-.main-nav a:hover { color: var(--color-primary); }
-.main-nav a:hover::after { width: 100%; }
 
 .header-cta {
   font-size: 0.85rem;
