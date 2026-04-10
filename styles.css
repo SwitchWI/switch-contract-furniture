@@ -455,6 +455,7 @@ h4 { font-size: 1rem; font-weight: 700; }
   position: relative;
   width: 100%;
   overflow: hidden;
+  touch-action: pan-y;
 }
 .gallery-track {
   display: flex;

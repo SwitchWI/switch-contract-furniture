@@ -294,6 +294,52 @@
       document.getElementById('galleryPrev').addEventListener('click', function() { scrollGallery(current - 1); });
       document.getElementById('galleryNext').addEventListener('click', function() { scrollGallery(current + 1); });
 
+      // Touch/swipe support
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var touchActive = false;
+      var swipeDirection = null; // 'h' = horizontal, 'v' = vertical
+      var dragStartTranslate = 0;
+      var dragDeltaX = 0;
+      var wrap = document.querySelector('.gallery-wrap');
+
+      wrap.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchActive = true;
+        swipeDirection = null;
+        dragDeltaX = 0;
+        var itemWidth = track.querySelector('.gallery-item').offsetWidth;
+        dragStartTranslate = -(current * (itemWidth + 16));
+      }, { passive: true });
+
+      wrap.addEventListener('touchmove', function(e) {
+        if (!touchActive) return;
+        var dx = e.touches[0].clientX - touchStartX;
+        var dy = e.touches[0].clientY - touchStartY;
+
+        // Determine direction on first significant move
+        if (swipeDirection === null && (Math.abs(dx) > 4 || Math.abs(dy) > 4)) {
+          swipeDirection = Math.abs(dx) >= Math.abs(dy) ? 'h' : 'v';
+        }
+
+        if (swipeDirection === 'h') {
+          e.preventDefault(); // Block page scroll so gallery moves
+          dragDeltaX = dx;
+          track.style.transition = 'none';
+          track.style.transform = 'translateX(' + (dragStartTranslate + dx) + 'px)';
+        }
+      }, { passive: false }); // passive: false is required for preventDefault to work
+
+      wrap.addEventListener('touchend', function() {
+        if (!touchActive || swipeDirection !== 'h') { touchActive = false; return; }
+        touchActive = false;
+        track.style.transition = '';
+        if (dragDeltaX < -40) scrollGallery(current + 1);
+        else if (dragDeltaX > 40) scrollGallery(current - 1);
+        else scrollGallery(current);
+      });
+
       // Lightbox
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = document.getElementById('lightboxImg');
