@@ -449,7 +449,7 @@ h4 { font-size: 1rem; font-weight: 700; }
   overflow: hidden;
   position: relative;
   background: var(--color-bg-alt);
-  padding: 0;
+  padding-bottom: 80px;
 }
 .gallery-wrap {
   position: relative;
