@@ -213,16 +213,32 @@
 
   <!-- PROJECT GALLERY -->
   <section class="project-gallery">
+    <div class="container">
+      <span class="section-label">Portfolio</span>
+      <h2>Our Recent Projects</h2>
+    </div>
     <div class="gallery-wrap">
       <div class="gallery-track" id="galleryTrack"></div>
       <button class="gallery-btn gallery-btn-prev" id="galleryPrev" aria-label="Previous">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
       </button>
       <button class="gallery-btn gallery-btn-next" id="galleryNext" aria-label="Next">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
       </button>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+    </button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Project image">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+    </button>
+  </div>
 
   <script>
     (function() {
@@ -253,30 +269,62 @@
         var tmp = images[i]; images[i] = images[j]; images[j] = tmp;
       }
 
+      // Build gallery
       var track = document.getElementById('galleryTrack');
-      images.forEach(function(src) {
+      images.forEach(function(src, idx) {
         var div = document.createElement('div');
         div.className = 'gallery-item';
+        div.dataset.index = idx;
         var img = document.createElement('img');
         img.src = src;
         img.alt = 'Switch Contract Furniture project';
         img.loading = 'lazy';
         div.appendChild(img);
+        div.addEventListener('click', function() { openLightbox(idx); });
         track.appendChild(div);
       });
 
+      // Gallery scroll
       var current = 0;
-      var itemWidth = track.querySelector('.gallery-item').offsetWidth;
-
-      function scrollTo(index) {
-        itemWidth = track.querySelector('.gallery-item').offsetWidth;
+      function scrollGallery(index) {
+        var itemWidth = track.querySelector('.gallery-item').offsetWidth;
         var max = images.length - 4;
         current = Math.max(0, Math.min(index, max));
         track.style.transform = 'translateX(-' + (current * (itemWidth + 16)) + 'px)';
       }
+      document.getElementById('galleryPrev').addEventListener('click', function() { scrollGallery(current - 1); });
+      document.getElementById('galleryNext').addEventListener('click', function() { scrollGallery(current + 1); });
 
-      document.getElementById('galleryPrev').addEventListener('click', function() { scrollTo(current - 1); });
-      document.getElementById('galleryNext').addEventListener('click', function() { scrollTo(current + 1); });
+      // Lightbox
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxIndex = 0;
+
+      function openLightbox(idx) {
+        lightboxIndex = idx;
+        lightboxImg.src = images[lightboxIndex];
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      function lightboxNav(dir) {
+        lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
+        lightboxImg.src = images[lightboxIndex];
+      }
+
+      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+      document.getElementById('lightboxPrev').addEventListener('click', function() { lightboxNav(-1); });
+      document.getElementById('lightboxNext').addEventListener('click', function() { lightboxNav(1); });
+      lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+      document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxNav(-1);
+        if (e.key === 'ArrowRight') lightboxNav(1);
+      });
     })();
   </script>
 
