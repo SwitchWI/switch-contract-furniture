@@ -211,6 +211,75 @@
     </div>
   </section>
 
+  <!-- PROJECT GALLERY -->
+  <section class="project-gallery">
+    <div class="gallery-wrap">
+      <div class="gallery-track" id="galleryTrack"></div>
+      <button class="gallery-btn gallery-btn-prev" id="galleryPrev" aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+      </button>
+      <button class="gallery-btn gallery-btn-next" id="galleryNext" aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var images = [
+        'assets/images/gallery/Gallery-1.JPG',
+        'assets/images/gallery/Gallery-2.jpg',
+        'assets/images/gallery/Gallery-3.JPG',
+        'assets/images/gallery/Gallery-4.jpg',
+        'assets/images/gallery/Gallery-5.JPG',
+        'assets/images/gallery/Gallery-6.JPG',
+        'assets/images/gallery/Gallery-7.JPG',
+        'assets/images/gallery/Gallery-8.jpg',
+        'assets/images/gallery/Gallery-9.jpg',
+        'assets/images/gallery/Gallery-10.JPG',
+        'assets/images/gallery/Gallery-11.jpg',
+        'assets/images/gallery/Gallery-12.jpeg',
+        'assets/images/gallery/Gallery-13.jpg',
+        'assets/images/gallery/Gallery-14.jpg',
+        'assets/images/gallery/Gallery-15.jpg',
+        'assets/images/gallery/Gallery-16.JPEG',
+        'assets/images/gallery/Gallery-17.jpg',
+        'assets/images/gallery/Gallery-18.jpg'
+      ];
+
+      // Fisher-Yates shuffle
+      for (var i = images.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = images[i]; images[i] = images[j]; images[j] = tmp;
+      }
+
+      var track = document.getElementById('galleryTrack');
+      images.forEach(function(src) {
+        var div = document.createElement('div');
+        div.className = 'gallery-item';
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Switch Contract Furniture project';
+        img.loading = 'lazy';
+        div.appendChild(img);
+        track.appendChild(div);
+      });
+
+      var current = 0;
+      var itemWidth = track.querySelector('.gallery-item').offsetWidth;
+
+      function scrollTo(index) {
+        itemWidth = track.querySelector('.gallery-item').offsetWidth;
+        var max = images.length - 4;
+        current = Math.max(0, Math.min(index, max));
+        track.style.transform = 'translateX(-' + (current * (itemWidth + 16)) + 'px)';
+      }
+
+      document.getElementById('galleryPrev').addEventListener('click', function() { scrollTo(current - 1); });
+      document.getElementById('galleryNext').addEventListener('click', function() { scrollTo(current + 1); });
+    })();
+  </script>
+
   <!-- OUR SERVICES -->
   <section class="services">
     <div class="container">
