@@ -1081,13 +1081,13 @@ h4 { font-size: 1rem; font-weight: 700; }
   padding: 14px 0;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: #000000;
   border-bottom: 1px solid var(--color-border);
   transition: color var(--transition);
 }
 .mobile-nav a:hover,
 .mobile-nav a.active {
-  color: var(--color-accent);
+  color: #000000;
   font-weight: 700;
 }
 .mobile-nav .btn {
