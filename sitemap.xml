@@ -21,6 +21,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.switchcontractfurniture.co.uk/office-furniture.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.switchcontractfurniture.co.uk/education-furniture.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.switchcontractfurniture.co.uk/hospitality-furniture.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.switchcontractfurniture.co.uk/brands.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
