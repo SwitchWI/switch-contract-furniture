@@ -608,6 +608,18 @@ h4 { font-size: 1rem; font-weight: 700; }
 }
 .lightbox-prev { left: 24px; }
 .lightbox-next { right: 24px; }
+.lightbox-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.lightbox-caption {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
 /* ===== SERVICES ===== */
 .services {

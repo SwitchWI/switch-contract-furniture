@@ -572,6 +572,7 @@
 .product-card {
   text-decoration: none;
   transition: all var(--transition);
+  cursor: pointer;
 }
 .product-card:hover {
   transform: translateY(-4px);
