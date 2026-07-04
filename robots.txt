@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.switchcontractfurniture.co.uk/sitemap.xml
+Sitemap: https://switchcontractfurniture.co.uk/sitemap.xml
