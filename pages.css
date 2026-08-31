@@ -135,21 +135,21 @@
 .value-card {
   padding: 40px 36px;
   background: #fff;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #DDD5C7;
   border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(15,23,42,0.06);
+  box-shadow: 0 4px 24px rgba(25, 34, 52,0.06);
   transition: all var(--transition);
 }
 .value-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 8px 40px rgba(15,23,42,0.12);
+  border-color: #C9C0B0;
+  box-shadow: 0 8px 40px rgba(25, 34, 52,0.12);
   transform: translateY(-2px);
 }
 .value-num {
   display: block;
   font-size: 4rem;
   font-weight: 800;
-  color: rgba(3,105,161,0.35);
+  color: rgba(212, 115, 53,0.35);
   line-height: 1;
   margin-bottom: 12px;
 }
@@ -190,7 +190,7 @@
   display: block;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #38BDF8;
+  color: #D47335;
   margin-bottom: 4px;
 }
 .stat-label {
@@ -361,7 +361,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(3, 105, 161, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 115, 53, 0.1);
 }
 .form-group textarea {
   resize: vertical;
@@ -406,7 +406,7 @@
 }
 .info-card.highlight {
   background: var(--color-accent-light);
-  border-color: rgba(3, 105, 161, 0.2);
+  border-color: rgba(212, 115, 53, 0.2);
 }
 .info-card.highlight h3 {
   color: var(--color-accent);
@@ -464,7 +464,7 @@
 .gallery-img {
   height: 280px;
   overflow: hidden;
-  background: #f1f5f9;
+  background: #EBE6DC;
 }
 .gallery-img img {
   width: 100%;
@@ -593,7 +593,7 @@
 }
 .product-card-img {
   aspect-ratio: 1;
-  background: #F1F5F9;
+  background: #EBE6DC;
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
