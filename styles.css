@@ -1376,3 +1376,115 @@ h4 { font-size: 1rem; font-weight: 700; }
   }
   .sector-desc { max-width: 46ch; }
 }
+
+/* ==========================================================================
+   BRAND MOTIF — stadium/pill outline
+   Reusable decorative shape echoing the "Learn More" pill.
+   Drawn with CSS pseudo-elements, so no markup changes and nothing to load.
+   Purely decorative: pointer-events off, sits behind content, hidden on small
+   screens and for users who prefer reduced motion/simplicity.
+   ========================================================================== */
+
+.how-we-work,
+.who-we-work-with,
+.page-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Keep real content above the motif everywhere it's used */
+.how-we-work > .container,
+.who-we-work-with > .container,
+.page-hero > .container,
+.cta > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Base shape */
+.how-we-work::before,
+.who-we-work-with::before,
+.page-hero::before,
+.cta::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border-style: solid;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dark sections — bright orange outline, bleeding off the right */
+.how-we-work::before {
+  width: 620px;
+  height: 260px;
+  right: -220px;
+  top: 8%;
+  border-width: 3px;
+  border-color: var(--color-accent-bright);
+  opacity: 0.45;
+}
+
+/* Light section — sage outline, bleeding off the left, lower down */
+.who-we-work-with::before {
+  width: 560px;
+  height: 240px;
+  left: -240px;
+  bottom: 10%;
+  border-width: 3px;
+  border-color: var(--color-sage);
+  opacity: 0.35;
+}
+
+/* Page hero — soft rust outline top-right, sets the tone on inner pages */
+.page-hero::before {
+  width: 520px;
+  height: 220px;
+  right: -200px;
+  top: -60px;
+  border-width: 3px;
+  border-color: var(--color-accent);
+  opacity: 0.28;
+}
+
+/* CTA — outline pill bottom-right (the existing radial glow stays on ::before) */
+.cta::after {
+  width: 560px;
+  height: 230px;
+  right: -240px;
+  bottom: -70px;
+  border-width: 3px;
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* Utility: drop a shape into any section that needs breathing room filled.
+   Add class="brand-motif brand-motif--rust brand-motif--right" to a section. */
+.brand-motif { position: relative; overflow: hidden; }
+.brand-motif > .container { position: relative; z-index: 1; }
+.brand-motif::before {
+  content: "";
+  position: absolute;
+  width: 560px;
+  height: 235px;
+  border-radius: 999px;
+  border: 3px solid var(--color-accent-bright);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+  top: 12%;
+  right: -230px;
+}
+.brand-motif--sage::before  { border-color: var(--color-sage); }
+.brand-motif--navy::before  { border-color: var(--color-primary); opacity: 0.18; }
+.brand-motif--rust::before  { border-color: var(--color-accent); }
+.brand-motif--left::before  { left: -230px; right: auto; }
+.brand-motif--low::before   { top: auto; bottom: -60px; }
+
+/* Too busy on narrow screens — pull them once there's no whitespace to fill */
+@media (max-width: 1024px) {
+  .how-we-work::before,
+  .who-we-work-with::before,
+  .page-hero::before,
+  .cta::after,
+  .brand-motif::before { display: none; }
+}
