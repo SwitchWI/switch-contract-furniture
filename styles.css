@@ -1167,3 +1167,144 @@ h4 { font-size: 1rem; font-weight: 700; }
   color: #fff;
   background: none;
 }
+
+/* ===== SECTORS WE SERVE — full-bleed panels ===== */
+.sectors .container,
+.sectors-serve .container {
+  text-align: left;
+}
+.sectors h2 {
+  text-align: left;
+  margin-bottom: 12px;
+}
+.sectors-intro {
+  color: var(--color-text-muted);
+  max-width: 620px;
+  margin: 0 0 40px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.sector-strip {
+  display: flex;
+  width: 100%;
+}
+.sector-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 620px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+}
+.sector-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15,23,42,0.82) 0%,
+    rgba(15,23,42,0.45) 38%,
+    rgba(15,23,42,0.05) 70%,
+    rgba(15,23,42,0) 100%
+  );
+  transition: background var(--transition);
+}
+.sector-panel:hover .sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(15,23,42,0.88) 0%,
+    rgba(15,23,42,0.55) 42%,
+    rgba(15,23,42,0.12) 74%,
+    rgba(15,23,42,0) 100%
+  );
+}
+.sector-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 36px 32px 40px;
+  width: 100%;
+}
+.sector-title {
+  display: block;
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.sector-desc {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 22px;
+  max-width: 30ch;
+}
+.sector-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  padding: 11px 26px;
+  border: 2px solid rgba(255,255,255,0.9);
+  border-radius: 100px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  transition: background var(--transition), border-color var(--transition);
+}
+.sector-dot {
+  position: absolute;
+  left: 7px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #F97316;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sector-panel:hover .sector-dot,
+.sector-panel:focus-visible .sector-dot {
+  left: calc(100% - 31px);
+}
+.sector-panel:hover .sector-cta,
+.sector-panel:focus-visible .sector-cta {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+}
+.sector-panel:focus-visible {
+  outline: 3px solid #F97316;
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sector-dot { transition: none; }
+}
+
+@media (max-width: 1024px) {
+  .sector-panel { height: 480px; }
+  .sector-title { font-size: 1.6rem; }
+  .sector-desc { font-size: 0.9rem; margin-bottom: 18px; }
+}
+
+@media (max-width: 768px) {
+  .sector-strip { flex-direction: column; }
+  .sector-panel { height: 380px; }
+  .sector-desc { max-width: 46ch; }
+}
+
+/* Sectors: override legacy centring / bottom padding so strip sits flush */
+.sectors {
+  padding: 100px 0 0;
+}
+.sectors .section-label {
+  text-align: left;
+  display: inline-block;
+}
