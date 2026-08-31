@@ -1308,3 +1308,8 @@ h4 { font-size: 1rem; font-weight: 700; }
   text-align: left;
   display: inline-block;
 }
+
+/* Sector panel images (kept in CSS, not inline, so HTML minifiers can't mangle them) */
+.sector-commercial  { background-image: url(assets/images/gallery/Gallery-17.jpg); }
+.sector-hospitality { background-image: url(assets/images/gallery/Ser-1.jpg); }
+.sector-education   { background-image: url(assets/images/gallery/Gallery-6.JPG); }
