@@ -669,3 +669,509 @@
   .content-section { padding: 64px 0; }
   .contact-form-wrap h2 { text-align: center; }
 }
+
+
+/* =========================================================================
+   Bring inner pages onto the homepage design language:
+   hairline rules + outlined circular markers instead of tiles.
+   ========================================================================= */
+
+/* --- Value cards: strip the tile (applies wherever .value-card is used) --- */
+.value-card {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-top: 1px solid var(--color-border);
+  padding: 32px 30px 28px 0;
+  transition: border-color var(--transition);
+}
+.value-card:hover {
+  background: none;
+  border: none;
+  border-top: 1px solid var(--color-accent);
+  box-shadow: none;
+  transform: none;
+}
+/* The big ghost numeral becomes a circular marker, matching How We Work */
+.value-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 22px;
+  transition: all var(--transition);
+}
+.value-card:hover .value-num {
+  background: var(--color-accent);
+  color: #fff;
+}
+.value-card h3 { margin-bottom: 10px; font-size: 1.05rem; }
+.value-card p { line-height: 1.75; }
+.values-grid { gap: 0 56px; }
+
+/* --- Dark (sage) sections: orange fails contrast, so use the pale peach --- */
+.content-section.bg-dark > .container { max-width: 1340px; }
+.content-section.bg-dark .section-label { color: var(--color-accent-on-dark); }
+.content-section.bg-dark .section-subtitle { color: rgba(255,255,255,0.55); }
+.content-section.bg-dark .values-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 48px;
+}
+.content-section.bg-dark .value-card {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  box-shadow: none;
+  padding-right: 0;
+}
+.content-section.bg-dark .value-card:hover {
+  background: none;
+  border: none;
+  border-top: 1px solid var(--color-accent-on-dark);
+  box-shadow: none;
+  transform: none;
+}
+.content-section.bg-dark .value-num {
+  border-color: var(--color-accent-on-dark);
+  color: var(--color-accent-on-dark);
+}
+.content-section.bg-dark .value-card:hover .value-num {
+  background: var(--color-accent-on-dark);
+  color: var(--color-ink);
+}
+.content-section.bg-dark .value-card h3 { color: #fff; }
+.content-section.bg-dark .value-card p { color: rgba(255,255,255,0.55); }
+
+@media (max-width: 1100px) {
+  .content-section.bg-dark .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 40px;
+  }
+}
+@media (max-width: 640px) {
+  .content-section.bg-dark .values-grid { grid-template-columns: 1fr; }
+  .value-card { padding-right: 0; }
+}
+
+/* Content sections: tighter vertically, wider horizontally (matches homepage) */
+.content-section { padding: 68px 0; }
+.content-section > .container { max-width: 1340px; }
+.content-grid { gap: 80px; }
+@media (max-width: 1024px) {
+  .content-grid { gap: 56px; }
+}
+@media (max-width: 768px) {
+  .content-section { padding: 52px 0; }
+}
+
+/* Pull the side margins in — content runs much closer to the viewport edge.
+   The image column takes the extra width so body copy keeps a readable measure. */
+.content-section > .container,
+.content-section.bg-dark > .container {
+  max-width: 1560px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.content-grid { grid-template-columns: 1fr 1.15fr; }
+.content-grid .content-text p { max-width: 68ch; }
+
+@media (max-width: 1280px) {
+  .content-section > .container,
+  .content-section.bg-dark > .container {
+    max-width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (max-width: 768px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .content-section > .container,
+  .content-section.bg-dark > .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+
+/* =========================================================================
+   CONTENT SPLIT — image bleeds to the viewport edge and fills section height,
+   text sits in the opposite half aligned to the page's left margin.
+   ========================================================================= */
+
+/* Any section holding a split loses its own padding + container width */
+.content-section:has(.content-grid) { padding: 0; }
+.content-section:has(.content-grid) > .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+.content-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+/* Text column: outer edge lines up with the page margin, inner edge is a gutter */
+.content-grid .content-text {
+  align-self: center;
+  padding: 72px 72px 72px max(40px, calc((100vw - 1560px) / 2 + 40px));
+}
+.content-grid.reverse .content-text {
+  padding-left: 72px;
+  padding-right: max(40px, calc((100vw - 1560px) / 2 + 40px));
+}
+.content-grid .content-text p { max-width: 62ch; }
+
+/* Image column: square corners, no cap, fills the cell */
+.content-image {
+  position: relative;
+  min-height: 620px;
+}
+.content-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .content-grid .content-text { padding: 56px 40px 56px 40px; }
+  .content-grid.reverse .content-text { padding: 56px 40px; }
+  .content-image { min-height: 480px; }
+}
+@media (max-width: 768px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .content-grid .content-text,
+  .content-grid.reverse .content-text { padding: 44px 24px; }
+  .content-image { min-height: 340px; }
+}
+
+
+/* ===== Body content on the sage sections ================================= */
+/* rgba(255,255,255,0.8) over #5A6055 gives ~4.8:1 — passes AA.
+   Anything lighter (0.55) lands near 2.9:1 and is hard to read. */
+.content-section.bg-dark .content-text p,
+.content-section.bg-dark .feature-list li,
+.content-section.bg-dark .value-card p {
+  color: rgba(255,255,255,0.8);
+}
+.content-section.bg-dark h3 { color: #fff; }
+/* :not(.btn) — otherwise this outranks the button rule below and paints the
+   button label the same colour as its own background */
+.content-section.bg-dark .content-text a:not(.btn) {
+  color: var(--color-accent-on-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.content-section.bg-dark .feature-list li::before {
+  background: var(--color-accent-on-dark);
+}
+.content-section.bg-dark a.btn-primary {
+  background: var(--color-accent-on-dark);
+  border-color: var(--color-accent-on-dark);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.content-section.bg-dark a.btn-primary:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--color-ink);
+}
+
+/* Sectors page: the strip carries its own heading above, so no extra padding */
+.sectors-page { padding: 0 0 0; }
+.sectors-page .sector-strip { margin-top: 0; }
+
+
+/* ===== Brands page cards on the sage sections ============================ */
+/* Same de-tiled language as the rest of the site: hairline rules, no boxes. */
+.content-section.bg-dark .benefit-card,
+.content-section.bg-dark .category-card {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  padding: 28px 0 26px;
+  text-align: left;
+  transition: border-color var(--transition);
+}
+.content-section.bg-dark .benefit-card:hover,
+.content-section.bg-dark .category-card:hover {
+  background: none;
+  border: none;
+  border-top: 1px solid var(--color-accent-on-dark);
+  box-shadow: none;
+  transform: none;
+}
+.content-section.bg-dark .benefit-card h3,
+.content-section.bg-dark .category-card h3 { color: #fff; }
+.content-section.bg-dark .benefit-card p,
+.content-section.bg-dark .category-card p,
+.content-section.bg-dark .category-card span,
+.content-section.bg-dark .category-card li {
+  color: rgba(255,255,255,0.8);
+}
+.content-section.bg-dark .brand-benefits { gap: 0 48px; }
+.content-section.bg-dark .category-grid { gap: 0 40px; }
+
+
+/* =========================================================================
+   SUPPLIER PARTNERS — continuous logo carousel (still clickable)
+   Track holds two identical sets; the -50% loop lands exactly on the seam.
+   ========================================================================= */
+.dealer-carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0;
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+.dealer-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: scroll-logos 60s linear infinite;
+}
+/* Pause on hover AND on keyboard focus, so a moving logo can be clicked */
+.dealer-track:hover,
+.dealer-track:focus-within {
+  animation-play-state: paused;
+}
+
+.dealer-carousel .dealer-card {
+  flex: 0 0 auto;
+  width: 170px;
+  height: 88px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.dealer-carousel .dealer-card:hover {
+  background: none;
+  border: none;
+  box-shadow: none;
+  transform: none;
+}
+.dealer-carousel .dealer-logo {
+  max-width: 150px;
+  max-height: 56px;
+  opacity: 0.45;
+  filter: grayscale(100%);
+  transition: opacity var(--transition), filter var(--transition);
+}
+.dealer-carousel .dealer-card:hover .dealer-logo {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+/* .invert logos are light-on-dark artwork, so they need flipping either way */
+.dealer-carousel .dealer-logo.invert {
+  filter: invert(1) grayscale(1);
+  opacity: 0.5;
+}
+.dealer-carousel .dealer-card:hover .dealer-logo.invert {
+  filter: invert(1) grayscale(1) brightness(0.35);
+  opacity: 1;
+}
+.dealer-carousel .dealer-card span {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  opacity: 0.75;
+}
+.dealer-carousel .dealer-card:hover span {
+  color: var(--color-accent);
+  opacity: 1;
+}
+/* Visible focus ring for keyboard users */
+.dealer-carousel .dealer-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dealer-track { animation: none; }
+  .dealer-carousel { overflow-x: auto; }
+}
+@media (max-width: 768px) {
+  .dealer-track { gap: 40px; }
+  .dealer-carousel .dealer-card { width: 130px; height: 72px; }
+  .dealer-carousel .dealer-logo { max-width: 118px; max-height: 44px; }
+}
+
+/* Manufacturers explainer on brands.html — plain <section class="section">
+   had no padding rule outside the mobile breakpoint */
+.brands-explainer {
+  padding: 80px 0;
+  background: var(--color-bg);
+}
+.brands-explainer h2 { margin-bottom: 24px; }
+.brands-explainer p {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 18px;
+  max-width: 72ch;
+}
+.brands-explainer p:last-child { margin-bottom: 0; }
+@media (max-width: 768px) {
+  .brands-explainer { padding: 56px 0; }
+}
+
+
+/* =========================================================================
+   INSIGHTS — long-form articles
+   .content-text-full had no rules, so body copy ran the full 1560px
+   container (~250 characters a line). Constrain it to a reading measure.
+   ========================================================================= */
+.content-text-full {
+  max-width: 74ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-text-full h2 {
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  margin: 44px 0 14px;
+  text-align: left;
+}
+.content-text-full > h2:first-child { margin-top: 0; }
+.content-text-full p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  margin-bottom: 20px;
+  color: var(--color-text-muted);
+}
+.content-text-full ul,
+.content-text-full ol {
+  margin: 0 0 24px;
+  padding-left: 22px;
+}
+.content-text-full li {
+  margin-bottom: 10px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+.content-text-full a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* …and on the green sections */
+.content-section.bg-dark .content-text-full li { color: rgba(255,255,255,0.8); }
+.content-section.bg-dark .content-text-full a { color: var(--color-accent-on-dark); }
+
+/* Insights hub: three guides sit in one row, not 2 + 1 */
+.insights-grid { grid-template-columns: repeat(3, 1fr); gap: 0 48px; }
+.insights-grid .value-card h3 { margin-bottom: 12px; }
+.insights-grid .value-card h3 a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.insights-grid .value-card h3 a:hover { color: var(--color-accent); }
+.insights-grid .value-card p { margin-bottom: 22px; }
+
+@media (max-width: 900px) {
+  .insights-grid { grid-template-columns: 1fr; gap: 0; }
+}
+
+
+/* ===== CONTACT — de-tiled to match the rest of the site ================== */
+.info-card {
+  padding: 26px 0 24px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid var(--color-border);
+  transition: border-color var(--transition);
+}
+.info-card:hover { border-top-color: var(--color-accent); }
+.info-card.highlight {
+  background: none;
+  border: none;
+  border-top: 2px solid var(--color-accent);
+  color: inherit;
+}
+.info-card.highlight h3 { color: var(--color-accent); }
+.info-card.highlight p { color: var(--color-text-muted); }
+.contact-info { display: flex; flex-direction: column; }
+
+
+/* ===== INSPIRATION CATALOGUE — de-tiled, with FROM pricing ============== */
+.product-card {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0 22px;
+  border-top: 1px solid var(--color-border);
+  transition: border-color var(--transition);
+}
+.product-card:hover {
+  background: none;
+  box-shadow: none;
+  transform: none;
+  border-top-color: var(--color-accent);
+}
+.product-card h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  margin-bottom: 2px;
+}
+.product-brand {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+.product-price {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+}
+
+.catalogue-disclaimer {
+  padding: 0 0 72px;
+  background: var(--color-bg);
+}
+.catalogue-disclaimer p {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  max-width: 78ch;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .catalogue-disclaimer { padding-bottom: 48px; }
+}
+
+/* Price in the sage green rather than rust */
+.product-price { color: var(--color-primary); }
+
+/* Asterisk pointing at the pricing disclaimer */
+.price-note {
+  color: var(--color-accent);
+  font-weight: 700;
+  margin-left: 1px;
+}
