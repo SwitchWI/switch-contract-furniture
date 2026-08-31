@@ -456,12 +456,8 @@ h4 { font-size: 1rem; font-weight: 700; }
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: var(--color-bg-alt);
-  padding-bottom: 0;
-}
-.gallery-wrap {
-  border-top: 18px solid var(--color-primary);
-  border-bottom: 18px solid var(--color-primary);
+  background: var(--color-primary);
+  padding: 72px 0 0;
 }
 .gallery-wrap {
   position: relative;
@@ -1159,10 +1155,13 @@ h4 { font-size: 1rem; font-weight: 700; }
 /* ===== RECENT PROJECTS — full-bleed 3-up layout ===== */
 .project-gallery .container {
   text-align: left !important;
+  background: none;
 }
 .project-gallery h2 {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: -0.01em;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  color: #fff;
+  background: none;
 }
