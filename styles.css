@@ -43,9 +43,9 @@
 
   /* Surfaces */
   --color-bg: #FFFFFF;
-  --color-bg-alt: #EBE6DC;         /* bone */
+  --color-bg-alt: #F8F7F6;         /* bone */
   --color-bg-dark: #192234;
-  --color-border: #DDD5C7;         /* warm border */
+  --color-border: #E4E0DA;         /* warm border */
 
   /* Text */
   --color-text: #192234;
@@ -153,7 +153,7 @@ h4 { font-size: 1rem; font-weight: 700; }
   border-color: #fff;
 }
 .btn-white:hover {
-  background: #EBE6DC;
+  background: #F8F7F6;
   transform: translateY(-1px);
   box-shadow: var(--shadow-lg);
 }

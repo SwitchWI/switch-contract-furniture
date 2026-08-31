@@ -135,7 +135,7 @@
 .value-card {
   padding: 40px 36px;
   background: #fff;
-  border: 1px solid #DDD5C7;
+  border: 1px solid #E4E0DA;
   border-radius: 20px;
   box-shadow: 0 4px 24px rgba(25, 34, 52,0.06);
   transition: all var(--transition);
@@ -464,7 +464,7 @@
 .gallery-img {
   height: 280px;
   overflow: hidden;
-  background: #EBE6DC;
+  background: #F8F7F6;
 }
 .gallery-img img {
   width: 100%;
@@ -593,7 +593,7 @@
 }
 .product-card-img {
   aspect-ratio: 1;
-  background: #EBE6DC;
+  background: #F8F7F6;
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
