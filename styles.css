@@ -457,7 +457,11 @@ h4 { font-size: 1rem; font-weight: 700; }
   overflow: hidden;
   position: relative;
   background: var(--color-bg-alt);
-  padding-bottom: 80px;
+  padding-bottom: 0;
+}
+.gallery-wrap {
+  border-top: 18px solid var(--color-primary);
+  border-bottom: 18px solid var(--color-primary);
 }
 .gallery-wrap {
   position: relative;
@@ -467,16 +471,17 @@ h4 { font-size: 1rem; font-weight: 700; }
 }
 .gallery-track {
   display: flex;
-  gap: 16px;
-  padding: 0 8px;
+  gap: 0;
+  padding: 0;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 .gallery-item {
-  flex: 0 0 calc((100% - 3 * 16px) / 4.5);
-  height: 380px;
-  border-radius: 12px;
+  flex: 0 0 calc(100% / 3);
+  height: 560px;
+  border-radius: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 .gallery-item img {
   width: 100%;
@@ -492,10 +497,10 @@ h4 { font-size: 1rem; font-weight: 700; }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(200,200,200,0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: none;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.5);
   color: var(--color-primary);
   cursor: pointer;
@@ -518,7 +523,8 @@ h4 { font-size: 1rem; font-weight: 700; }
 
 @media (max-width: 768px) {
   .gallery-item {
-    flex: 0 0 calc((100% - 16px) / 1.3);
+    flex: 0 0 calc(100% / 1.15);
+    height: 340px;
     height: 280px;
   }
   .project-gallery {
@@ -1147,4 +1153,16 @@ h4 { font-size: 1rem; font-weight: 700; }
   .steps-grid { grid-template-columns: 1fr; }
   .roles-grid { grid-template-columns: 1fr; }
   .hero-content h1 { font-size: 1.8rem; }
+}
+
+
+/* ===== RECENT PROJECTS — full-bleed 3-up layout ===== */
+.project-gallery .container {
+  text-align: left !important;
+}
+.project-gallery h2 {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
 }

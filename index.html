@@ -15,7 +15,7 @@
   <meta name="keywords" content="contract furniture, office furniture, commercial furniture, education furniture, hospitality furniture, UK">
   <link rel="canonical" href="https://switchcontractfurniture.co.uk/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contract Furniture Supply & Installation | Switch Contract Furniture">
+  <meta property="og:title" content="Contract Furniture Supply & Installation | Switch">
   <meta property="og:description" content="Switch Contract Furniture supplies, plans and installs contract-grade commercial furniture for offices, education and hospitality across the UK.">
   <meta property="og:url" content="https://switchcontractfurniture.co.uk/">
   <meta property="og:image" content="https://switchcontractfurniture.co.uk/assets/images/hero-stauff.jpg">
@@ -24,19 +24,19 @@
   <meta name="twitter:image" content="https://switchcontractfurniture.co.uk/assets/images/hero-stauff.jpg">
   <meta property="og:site_name" content="Switch Contract Furniture">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contract Furniture Supply & Installation | Switch Contract Furniture">
+  <meta name="twitter:title" content="Contract Furniture Supply & Installation | Switch">
   <meta name="twitter:description" content="Switch Contract Furniture supplies, plans and installs contract-grade commercial furniture for offices, education and hospitality across the UK.">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <title>Contract Furniture Supply & Installation | Switch Contract Furniture</title>
+  <title>Contract Furniture Supply & Installation | Switch</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="pages.css">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "FurnitureStore"],
+    "@type": "LocalBusiness",
     "name": "Switch Contract Furniture",
     "url": "https://switchcontractfurniture.co.uk",
     "logo": "https://switchcontractfurniture.co.uk/assets/images/logo.png",
@@ -85,6 +85,7 @@
         <a href="/sectors.html">Sectors</a>
         <a href="/brands.html">Brands</a>
         <a href="/inspiration.html">Inspiration</a>
+        <a href="/insights/">Insights</a>
         <a href="/contact.html">Contact</a>
       </nav>
       <a href="/contact.html" class="btn btn-dark header-cta">Get a Quote</a>
@@ -104,6 +105,7 @@
     <a href="/sectors.html">Sectors</a>
     <a href="/brands.html">Brands</a>
     <a href="/inspiration.html">Inspiration</a>
+    <a href="/insights/">Insights</a>
     <a href="/contact.html">Contact</a>
     <a href="/contact.html" class="btn btn-primary">Get a Quote</a>
   </nav>
@@ -228,7 +230,7 @@
 
   <!-- PROJECT GALLERY -->
   <section class="project-gallery">
-    <div class="container" style="text-align: center;">
+    <div class="container">
       <h2>Our Recent Projects</h2>
     </div>
     <div class="gallery-wrap">
@@ -291,7 +293,28 @@
         div.dataset.index = idx;
         var img = document.createElement('img');
         img.src = src;
-        img.alt = 'Switch Contract Furniture project';
+        // Descriptive, rotated alt text for SEO (gallery shuffles so no 1:1 mapping)
+        var altDescriptions = [
+          'Commercial office furniture installation by Switch Contract Furniture',
+          'Contract-grade workplace furniture project in the UK',
+          'Breakout seating and soft furnishings in a commercial office',
+          'Meeting room and boardroom furniture supplied by Switch',
+          'Task seating and desking in a UK commercial office fit-out',
+          'Education sector classroom furniture installation',
+          'Hospitality furniture project \u2014 hotel or restaurant interior',
+          'Reception and lounge furniture in a commercial reception space',
+          'Acoustic pods and collaboration spaces in a modern office',
+          'Canteen and breakout furniture for a UK workplace',
+          'Lecture hall and library furniture for higher education',
+          'Student accommodation bedroom furniture with Crib 5 compliance',
+          'Restaurant and bar seating in a hospitality venue',
+          'Executive office and private meeting space furniture',
+          'Open-plan office desking and task seating',
+          'Touchdown and breakout furniture for agile working',
+          'Canteen dining furniture for a commercial workplace',
+          'Contract furniture installation by Switch \u2014 UK-wide delivery'
+        ];
+        img.alt = altDescriptions[idx % altDescriptions.length];
         img.loading = 'lazy';
         div.appendChild(img);
         div.addEventListener('click', function() { openLightbox(idx); });
@@ -302,9 +325,9 @@
       var current = 0;
       function scrollGallery(index) {
         var itemWidth = track.querySelector('.gallery-item').offsetWidth;
-        var max = images.length - 4;
+        var max = images.length - 3;
         current = Math.max(0, Math.min(index, max));
-        track.style.transform = 'translateX(-' + (current * (itemWidth + 16)) + 'px)';
+        track.style.transform = 'translateX(-' + (current * itemWidth) + 'px)';
       }
       document.getElementById('galleryPrev').addEventListener('click', function() { scrollGallery(current - 1); });
       document.getElementById('galleryNext').addEventListener('click', function() { scrollGallery(current + 1); });
@@ -325,7 +348,7 @@
         swipeDirection = null;
         dragDeltaX = 0;
         var itemWidth = track.querySelector('.gallery-item').offsetWidth;
-        dragStartTranslate = -(current * (itemWidth + 16));
+        dragStartTranslate = -(current * itemWidth);
       }, { passive: true });
 
       wrap.addEventListener('touchmove', function(e) {
@@ -536,6 +559,7 @@
           <a href="/sectors.html">Sectors</a>
           <a href="/brands.html">Brands</a>
         <a href="/inspiration.html">Inspiration</a>
+          <a href="/insights/">Insights</a>
         </div>
         <div class="footer-col">
           <h4>Sectors</h4>
