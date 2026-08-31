@@ -218,7 +218,7 @@ h4 { font-size: 1rem; font-weight: 700; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('assets/images/hero-stauff.jpg') center/cover no-repeat;
+  background: url('assets/images/hero-reception.jpg') center/cover no-repeat;
 }
 .hero-overlay {
   position: absolute;
