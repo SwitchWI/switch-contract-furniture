@@ -2157,3 +2157,21 @@ h4 { font-size: 1rem; font-weight: 700; }
   backdrop-filter: blur(3px);
   text-shadow: 0 1px 6px rgba(25, 34, 52, 0.5);
 }
+
+/* Featured arches: keep two side by side on phones.
+   --w drives width, height and radius together, so the crown stays a true
+   semicircle (radius is always exactly half the width) at any size. */
+@media (max-width: 700px) {
+  .featured-arches { gap: 14px; padding: 0 16px; }
+  .featured-arch {
+    --w: min(168px, 43vw);
+    width: var(--w);
+    height: calc(var(--w) * 1.62);
+    border-radius: calc(var(--w) / 2) calc(var(--w) / 2) 0 0;
+    padding: calc(var(--w) * 0.20) 10px 22px;
+    border-width: 3px;
+  }
+  .featured-arch-img { margin-bottom: 16px; }
+  .featured-arch-name { font-size: 0.82rem; height: 20px; line-height: 20px; letter-spacing: 0.04em; margin-bottom: 2px; }
+  .featured-arch-price { font-size: 0.78rem; height: 18px; line-height: 18px; }
+}

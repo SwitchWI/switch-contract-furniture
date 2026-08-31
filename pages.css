@@ -1175,3 +1175,17 @@
   font-weight: 700;
   margin-left: 1px;
 }
+
+/* Who We Work With was overflowing on phones — my 4-column rule sat after the
+   existing breakpoints, so it applied at every width. */
+@media (max-width: 1024px) {
+  .roles-grid { grid-template-columns: repeat(3, 1fr); gap: 0 36px; }
+}
+@media (max-width: 768px) {
+  .roles-grid { grid-template-columns: repeat(2, 1fr); gap: 0 28px; }
+  .role-item h4 { font-size: 0.95rem; }
+}
+@media (max-width: 400px) {
+  .roles-grid { gap: 0 20px; }
+  .role-item h4 { font-size: 0.88rem; }
+}
