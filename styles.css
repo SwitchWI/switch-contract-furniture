@@ -2221,3 +2221,21 @@ h4 { font-size: 1rem; font-weight: 700; }
 .sector-cta {
   text-shadow: 0 1px 10px rgba(25, 34, 52, 0.85), 0 1px 3px rgba(25, 34, 52, 0.7);
 }
+
+/* Sector overlays: sage green at ~18% (was burnt orange at ~10%) */
+.sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(45, 50, 42, 0.22) 0%,
+    rgba(90, 96, 85, 0.18) 55%,
+    rgba(90, 96, 85, 0.14) 100%
+  );
+}
+.sector-panel:hover .sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(45, 50, 42, 0.30) 0%,
+    rgba(90, 96, 85, 0.24) 55%,
+    rgba(90, 96, 85, 0.18) 100%
+  );
+}
