@@ -2195,3 +2195,29 @@ h4 { font-size: 1rem; font-weight: 700; }
     rgba(164, 74, 18, 0) 100%
   );
 }
+
+/* Sector overlays down to ~10% so the photography reads through.
+   Text shadows do the legibility work the overlay was doing. */
+.sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(84, 36, 8, 0.12) 0%,
+    rgba(164, 74, 18, 0.09) 60%,
+    rgba(164, 74, 18, 0.07) 100%
+  );
+}
+.sector-panel:hover .sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(84, 36, 8, 0.18) 0%,
+    rgba(164, 74, 18, 0.14) 60%,
+    rgba(164, 74, 18, 0.10) 100%
+  );
+}
+.sector-title {
+  text-shadow: 0 2px 16px rgba(25, 34, 52, 0.75), 0 1px 3px rgba(25, 34, 52, 0.6);
+}
+.sector-desc,
+.sector-cta {
+  text-shadow: 0 1px 10px rgba(25, 34, 52, 0.85), 0 1px 3px rgba(25, 34, 52, 0.7);
+}
