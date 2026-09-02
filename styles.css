@@ -2279,3 +2279,23 @@ h4 { font-size: 1rem; font-weight: 700; }
     rgba(84, 36, 8, 0) 100%
   );
 }
+
+/* Same densities, half the height — fade clears by 35% up instead of 70% */
+.sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(84, 36, 8, 0.82) 0%,
+    rgba(84, 36, 8, 0.45) 19%,
+    rgba(84, 36, 8, 0.05) 35%,
+    rgba(84, 36, 8, 0) 50%
+  );
+}
+.sector-panel:hover .sector-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(84, 36, 8, 0.88) 0%,
+    rgba(84, 36, 8, 0.55) 21%,
+    rgba(84, 36, 8, 0.12) 37%,
+    rgba(84, 36, 8, 0) 50%
+  );
+}
