@@ -1351,3 +1351,14 @@
 @media (max-width: 620px) {
   .sector-accordion { height: auto; min-height: 0; }
 }
+
+/* Hero sits above the accordion now, so take its height out of the fill */
+.catalogue-hero { padding: 56px 0 48px; }
+.sector-accordion { height: calc(100vh - 72px - 45px - 232px); min-height: 420px; }
+@media (max-width: 900px) {
+  .catalogue-hero { padding: 44px 0 36px; }
+  .sector-accordion { height: clamp(420px, 48vh, 560px); }
+}
+@media (max-width: 620px) {
+  .sector-accordion { height: auto; min-height: 0; }
+}
