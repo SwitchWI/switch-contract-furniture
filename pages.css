@@ -1341,3 +1341,13 @@
   padding: 28px 0 8px;
 }
 .category-empty a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Inspiration hub: accordion is the page, so let it fill the viewport
+   (100vh minus the fixed header and the breadcrumb bar) */
+.sector-accordion {
+  height: calc(100vh - 72px - 45px);
+  min-height: 460px;
+}
+@media (max-width: 620px) {
+  .sector-accordion { height: auto; min-height: 0; }
+}
