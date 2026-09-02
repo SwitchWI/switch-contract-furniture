@@ -1189,3 +1189,61 @@
   .roles-grid { gap: 0 20px; }
   .role-item h4 { font-size: 0.88rem; }
 }
+
+
+/* =========================================================================
+   BRANDS EXPLAINER — portrait image / centred text / portrait image.
+   Both images bleed to their own edge of the viewport.
+   ========================================================================= */
+.brands-explainer { padding: 0; background: var(--color-bg); }
+.explainer-trio {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr 1fr;
+  align-items: stretch;
+}
+.explainer-img {
+  position: relative;
+  min-height: 660px;
+}
+.explainer-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  max-height: none;
+}
+.explainer-text {
+  align-self: center;
+  padding: 80px 56px;
+  text-align: center;
+}
+.explainer-text h2 { margin-bottom: 22px; }
+.explainer-text p {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  margin-bottom: 18px;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.explainer-text p:last-child { margin-bottom: 0; }
+
+/* Tablet: text across the top, the two portraits side by side beneath */
+@media (max-width: 1080px) {
+  .explainer-trio { grid-template-columns: 1fr 1fr; }
+  .explainer-text {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: 64px 32px 48px;
+  }
+  .explainer-img { min-height: 460px; }
+}
+@media (max-width: 620px) {
+  .explainer-trio { grid-template-columns: 1fr; }
+  .explainer-text { padding: 48px 24px 36px; }
+  .explainer-img { min-height: 380px; }
+  .explainer-img:last-child { display: none; }   /* one portrait is enough on a phone */
+}
