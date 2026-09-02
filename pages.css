@@ -1333,3 +1333,11 @@
   .acc-panel { flex: 0 0 auto; height: 190px; }
   .acc-label { left: 20px; bottom: 16px; font-size: 1.15rem; }
 }
+
+/* Catalogue categories awaiting products */
+.category-empty {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  padding: 28px 0 8px;
+}
+.category-empty a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
