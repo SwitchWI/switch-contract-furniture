@@ -2299,3 +2299,74 @@ h4 { font-size: 1rem; font-weight: 700; }
     rgba(84, 36, 8, 0) 50%
   );
 }
+
+
+/* =========================================================================
+   OFFER BANNER — full-bleed orange strip promoting free space planning
+   ========================================================================= */
+.offer-banner {
+  display: block;
+  width: 100%;
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.offer-banner:hover { background: var(--color-accent-hover); }
+
+.offer-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 20px 40px;
+}
+.offer-banner-flag {
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: #fff;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.offer-banner-text {
+  color: rgba(255,255,255,0.88);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.offer-banner-text strong {
+  color: #fff;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.offer-banner-cta {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+}
+.offer-banner-cta svg {
+  width: 15px;
+  height: 15px;
+  transition: transform var(--transition);
+}
+.offer-banner:hover .offer-banner-cta svg { transform: translateX(4px); }
+.offer-banner:focus-visible { outline: 3px solid var(--color-accent-on-dark); outline-offset: -3px; }
+
+@media (max-width: 900px) {
+  .offer-banner-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding: 22px 24px;
+  }
+}
