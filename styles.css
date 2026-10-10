@@ -2370,3 +2370,15 @@ h4 { font-size: 1rem; font-weight: 700; }
     padding: 22px 24px;
   }
 }
+
+/* Offer banner scaled up by a third */
+.offer-banner-inner { padding: 27px 40px; gap: 29px; }
+.offer-banner-flag  { font-size: 0.96rem; padding: 7px 16px; }
+.offer-banner-text  { font-size: 1.30rem; line-height: 1.5; }
+.offer-banner-cta   { font-size: 1.17rem; gap: 11px; }
+.offer-banner-cta svg { width: 20px; height: 20px; }
+@media (max-width: 900px) {
+  .offer-banner-inner { padding: 29px 24px; gap: 16px; }
+  .offer-banner-text  { font-size: 1.12rem; }
+  .offer-banner-cta   { font-size: 1.05rem; }
+}
