@@ -2392,3 +2392,5 @@ h4 { font-size: 1rem; font-weight: 700; }
 .cookie-settings { background: transparent; border: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; padding: 6px; }
 .product-card:focus-visible, .gallery-item:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #1f6567; outline-offset: 3px; }
 .featured-arch-price small { font-size: 0.65em; }
+/* Do not animate inherited visibility: hidden controls cannot receive focus. */
+.lightbox button { transition-property: background-color, transform; }
