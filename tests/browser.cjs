@@ -78,8 +78,10 @@ const server = http.createServer((req, res) => {
       await page.keyboard.press('Enter');
       const dialog = page.getByRole('dialog', { name: 'Enlarged image' });
       await dialog.waitFor({ state: 'visible' });
-      await page.waitForTimeout(30);
-      assert.equal(await dialog.locator('button').first().evaluate(el => el === document.activeElement), true);
+      await page.waitForFunction(() => {
+        const box = document.querySelector('.lightbox.active');
+        return box && box.querySelector('button') === document.activeElement;
+      });
       await page.keyboard.press('Shift+Tab');
       assert.equal(await dialog.locator('button').last().evaluate(el => el === document.activeElement), true);
       await page.keyboard.press('Escape');

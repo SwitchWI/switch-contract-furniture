@@ -142,7 +142,9 @@
           trigger = document.activeElement;
           background = Array.from(document.body.children).filter(function (el) { return el !== box && !el.contains(box); }).map(function (el) { return [el, el.inert]; });
           background.forEach(function (entry) { entry[0].inert = true; });
-          box.querySelector('button').focus();
+          requestAnimationFrame(function () {
+            if (box.classList.contains('active')) box.querySelector('button').focus();
+          });
         } else {
           background.forEach(function (entry) { entry[0].inert = entry[1]; });
           if (trigger && trigger.isConnected) trigger.focus();
