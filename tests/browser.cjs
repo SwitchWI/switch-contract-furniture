@@ -19,6 +19,7 @@ const server = http.createServer((req, res) => {
   try {
     const context = await browser.newContext();
     const page = await context.newPage();
+    page.setDefaultTimeout(10000);
     const errors = [];
     let analyticsRequests = 0;
     page.on('pageerror', err => errors.push(err.message));
@@ -81,6 +82,9 @@ const server = http.createServer((req, res) => {
       await page.waitForFunction(() => {
         const box = document.querySelector('.lightbox.active');
         return box && box.querySelector('button') === document.activeElement;
+      }, null, { timeout: 3000 }).catch(async err => {
+        console.error(file, await page.evaluate(() => ({ active: document.activeElement.outerHTML.slice(0, 500), boxes: Array.from(document.querySelectorAll('.lightbox')).map(b => ({ id: b.id, inert: b.inert, visibility: getComputedStyle(b).visibility, html: b.outerHTML.slice(0, 700) })) })));
+        throw err;
       });
       await page.keyboard.press('Shift+Tab');
       assert.equal(await dialog.locator('button').last().evaluate(el => el === document.activeElement), true);
