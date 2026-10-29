@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
     page.setDefaultTimeout(10000);
     const errors = [];
     let analyticsRequests = 0;
-    page.on('pageerror', err => errors.push(err.message));
+    page.on('pageerror', err => errors.push(page.url() + ': ' + err.message));
     await context.route('**/*', route => {
       const req = route.request();
       if (req.url().includes('googletagmanager.com')) {

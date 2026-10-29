@@ -211,63 +211,7 @@
   </script>
 
 
-  <script>
-    // ===== INSPIRATION LIGHTBOX =====
-    (function() {
-      var lightbox = document.getElementById('inspirationLightbox');
-      var img = document.getElementById('inspirationImg');
-      var caption = document.getElementById('inspirationCaption');
-      var allCards = Array.from(document.querySelectorAll('.product-card'));
-      var currentIndex = 0;
 
-      function getCardData(card) {
-        var cardImg = card.querySelector('.product-card-img img');
-        var name = card.querySelector('h4') ? card.querySelector('h4').textContent : '';
-        var brand = card.querySelector('.product-brand') ? card.querySelector('.product-brand').textContent : '';
-        return { src: cardImg ? cardImg.src : '', alt: cardImg ? cardImg.alt : '', name: name, brand: brand };
-      }
-
-      function openLightbox(index) {
-        currentIndex = index;
-        var data = getCardData(allCards[currentIndex]);
-        img.src = data.src;
-        img.alt = data.alt;
-        caption.textContent = data.name + (data.brand ? ', ' + data.brand : '');
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-        img.src = '';
-      }
-
-      function navigate(dir) {
-        currentIndex = (currentIndex + dir + allCards.length) % allCards.length;
-        var data = getCardData(allCards[currentIndex]);
-        img.src = data.src;
-        img.alt = data.alt;
-        caption.textContent = data.name + (data.brand ? ', ' + data.brand : '');
-      }
-
-      allCards.forEach(function(card, index) {
-        card.addEventListener('click', function() { openLightbox(index); });
-      });
-
-      document.getElementById('inspirationClose').addEventListener('click', closeLightbox);
-      document.getElementById('inspirationPrev').addEventListener('click', function() { navigate(-1); });
-      document.getElementById('inspirationNext').addEventListener('click', function() { navigate(1); });
-      lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
-
-      document.addEventListener('keydown', function(e) {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') navigate(-1);
-        if (e.key === 'ArrowRight') navigate(1);
-      });
-    })();
-  </script>
 
   
 </body>
