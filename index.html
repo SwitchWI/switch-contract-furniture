@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5C6FX3W3S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L5C6FX3W3S');
-  </script>
+  <script defer src="/assets/js/site.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Switch Contract Furniture supplies, plans and installs contract-grade commercial furniture for offices, education and hospitality across the UK.">
@@ -245,28 +238,28 @@
           <img src="assets/images/products/saddler.jpg" alt="Saddler stackable oak side chair with curved wraparound back" loading="lazy">
         </span>
         <span class="featured-arch-name">Saddler</span>
-        <span class="featured-arch-price">From &pound;150</span>
+        <span class="featured-arch-price">From &pound;150 <small>ex VAT</small></span>
       </a>
       <a class="featured-arch" href="/contact.html">
         <span class="featured-arch-img">
           <img src="assets/images/products/banq.jpg" alt="Banq fluted upholstered banquette bench seating with plinth base" loading="lazy">
         </span>
         <span class="featured-arch-name">Banq</span>
-        <span class="featured-arch-price">From &pound;720</span>
+        <span class="featured-arch-price">From &pound;720 <small>ex VAT</small></span>
       </a>
       <a class="featured-arch" href="/contact.html">
         <span class="featured-arch-img">
           <img src="assets/images/products/sylphy.jpg" alt="Sylphy ergonomic mesh-back task chair with adjustable arms" loading="lazy">
         </span>
         <span class="featured-arch-name">Sylphy</span>
-        <span class="featured-arch-price">From &pound;480</span>
+        <span class="featured-arch-price">From &pound;480 <small>ex VAT</small></span>
       </a>
       <a class="featured-arch" href="/contact.html">
         <span class="featured-arch-img">
           <img src="assets/images/products/archie.jpg" alt="Archie two-person acoustic meeting pod with arched canopy and pendant light" loading="lazy">
         </span>
         <span class="featured-arch-name">Archie</span>
-        <span class="featured-arch-price">From &pound;3900</span>
+        <span class="featured-arch-price">From &pound;3900 <small>ex VAT</small></span>
       </a>
     </div>
   </section>
@@ -358,6 +351,9 @@
         'assets/images/gallery/Gallery-18.jpg'
       ];
 
+      var imageDescriptions = {};
+      images.forEach(function(src, index) { imageDescriptions[src] = 'Switch project gallery photograph ' + (index + 1); });
+
       // Fisher-Yates shuffle
       for (var i = images.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -372,28 +368,7 @@
         div.dataset.index = idx;
         var img = document.createElement('img');
         img.src = src;
-        // Descriptive, rotated alt text for SEO (gallery shuffles so no 1:1 mapping)
-        var altDescriptions = [
-          'Commercial office furniture installation by Switch Contract Furniture',
-          'Contract-grade workplace furniture project in the UK',
-          'Breakout seating and soft furnishings in a commercial office',
-          'Meeting room and boardroom furniture supplied by Switch',
-          'Task seating and desking in a UK commercial office fit-out',
-          'Education sector classroom furniture installation',
-          'Hospitality furniture project \u2014 hotel or restaurant interior',
-          'Reception and lounge furniture in a commercial reception space',
-          'Acoustic pods and collaboration spaces in a modern office',
-          'Canteen and breakout furniture for a UK workplace',
-          'Lecture hall and library furniture for higher education',
-          'Student accommodation bedroom furniture with Crib 5 compliance',
-          'Restaurant and bar seating in a hospitality venue',
-          'Executive office and private meeting space furniture',
-          'Open-plan office desking and task seating',
-          'Touchdown and breakout furniture for agile working',
-          'Canteen dining furniture for a commercial workplace',
-          'Contract furniture installation by Switch \u2014 UK-wide delivery'
-        ];
-        img.alt = altDescriptions[idx % altDescriptions.length];
+        img.alt = imageDescriptions[src];
         img.loading = 'lazy';
         div.appendChild(img);
         div.addEventListener('click', function() { openLightbox(idx); });
@@ -404,12 +379,15 @@
       var current = 0;
       function scrollGallery(index) {
         var itemWidth = track.querySelector('.gallery-item').offsetWidth;
-        var max = images.length - 3;
+        var max = Math.max(0, Math.ceil((track.scrollWidth - track.parentElement.clientWidth) / itemWidth));
         current = Math.max(0, Math.min(index, max));
-        track.style.transform = 'translateX(-' + (current * itemWidth) + 'px)';
+        var offset = Math.min(current * itemWidth, Math.max(0, track.scrollWidth - track.parentElement.clientWidth));
+        track.style.transform = 'translateX(-' + offset + 'px)';
       }
       document.getElementById('galleryPrev').addEventListener('click', function() { scrollGallery(current - 1); });
       document.getElementById('galleryNext').addEventListener('click', function() { scrollGallery(current + 1); });
+
+      window.addEventListener('resize', function() { scrollGallery(current); });
 
       // Touch/swipe support
       var touchStartX = 0;
@@ -427,7 +405,7 @@
         swipeDirection = null;
         dragDeltaX = 0;
         var itemWidth = track.querySelector('.gallery-item').offsetWidth;
-        dragStartTranslate = -(current * itemWidth);
+        dragStartTranslate = -Math.min(current * itemWidth, Math.max(0, track.scrollWidth - wrap.clientWidth));
       }, { passive: true });
 
       wrap.addEventListener('touchmove', function(e) {
@@ -465,6 +443,7 @@
       function openLightbox(idx) {
         lightboxIndex = idx;
         lightboxImg.src = images[lightboxIndex];
+        lightboxImg.alt = imageDescriptions[images[lightboxIndex]];
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
@@ -475,6 +454,7 @@
       function lightboxNav(dir) {
         lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
         lightboxImg.src = images[lightboxIndex];
+        lightboxImg.alt = imageDescriptions[images[lightboxIndex]];
       }
 
       document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
@@ -766,31 +746,6 @@
     })();
   </script>
 
-  <script>
-    // Mobile menu
-    (function() {
-      var toggle = document.querySelector('.mobile-menu-toggle');
-      var nav = document.getElementById('mobileNav');
-      var overlay = document.getElementById('mobileOverlay');
-      if (!toggle) return;
-      function closeMenu() {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      toggle.addEventListener('click', function() {
-        var isOpen = nav.classList.contains('active');
-        if (isOpen) { closeMenu(); }
-        else {
-          toggle.classList.add('active');
-          nav.classList.add('active');
-          overlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-      overlay.addEventListener('click', closeMenu);
-    })();
-  </script>
+  
 </body>
 </html>

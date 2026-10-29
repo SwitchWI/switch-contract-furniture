@@ -587,7 +587,7 @@ h4 { font-size: 1rem; font-weight: 700; }
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 .lightbox.active {
   opacity: 1;
@@ -2382,3 +2382,15 @@ h4 { font-size: 1rem; font-weight: 700; }
   .offer-banner-text  { font-size: 1.12rem; }
   .offer-banner-cta   { font-size: 1.05rem; }
 }
+
+/* Shared visitor controls */
+.cookie-banner { position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 3000; padding: 20px; max-width: 780px; margin: auto; background: #fff; color: #0e232d; border: 1px solid #0e232d; border-radius: 8px; box-shadow: 0 4px 24px #0003; max-height: 70vh; overflow: auto; }
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { margin: 0 0 12px; }
+.cookie-banner a { text-decoration: underline; }
+.cookie-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.cookie-settings { background: transparent; border: 0; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; padding: 6px; }
+.product-card:focus-visible, .gallery-item:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #1f6567; outline-offset: 3px; }
+.featured-arch-price small { font-size: 0.65em; }
+/* Do not animate inherited visibility: hidden controls cannot receive focus. */
+.lightbox button { transition-property: background-color, transform; }
