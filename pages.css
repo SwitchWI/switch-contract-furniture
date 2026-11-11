@@ -1430,3 +1430,18 @@
   font-size: 0.8rem;
   color: var(--color-text-light);
 }
+
+/* Small-print qualifier under a service block */
+.service-note {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  border-top: 1px solid var(--color-border);
+  padding-top: 14px;
+  margin-top: 4px;
+  max-width: 54ch;
+}
+.content-section.bg-dark .service-note {
+  color: rgba(255,255,255,0.62);
+  border-top-color: rgba(255,255,255,0.16);
+}
