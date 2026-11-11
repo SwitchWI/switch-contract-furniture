@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5C6FX3W3S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L5C6FX3W3S');
-  </script>
+  <script defer src="/assets/js/site.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contract office furniture supply, space planning and installation for commercial workplaces across the UK, from single-floor refreshes to full HQ fit-outs.">
@@ -312,31 +305,6 @@
   </footer>
 
 
-  <script>
-    // Mobile menu
-    (function() {
-      var toggle = document.querySelector('.mobile-menu-toggle');
-      var nav = document.getElementById('mobileNav');
-      var overlay = document.getElementById('mobileOverlay');
-      if (!toggle) return;
-      function closeMenu() {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      toggle.addEventListener('click', function() {
-        var isOpen = nav.classList.contains('active');
-        if (isOpen) { closeMenu(); }
-        else {
-          toggle.classList.add('active');
-          nav.classList.add('active');
-          overlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-      overlay.addEventListener('click', closeMenu);
-    })();
-  </script>
+  
 </body>
 </html>

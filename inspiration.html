@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5C6FX3W3S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L5C6FX3W3S');
-  </script>
+  <script defer src="/assets/js/site.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Browse our product catalogue featuring task chairs, meeting pods, sofas, tables, storage and more from our 18+ supplier partners.">
@@ -225,89 +218,8 @@
   </script>
 
 
-  <script>
-    // ===== INSPIRATION LIGHTBOX =====
-    (function() {
-      var lightbox = document.getElementById('inspirationLightbox');
-      var img = document.getElementById('inspirationImg');
-      var caption = document.getElementById('inspirationCaption');
-      var allCards = Array.from(document.querySelectorAll('.product-card'));
-      var currentIndex = 0;
 
-      function getCardData(card) {
-        var cardImg = card.querySelector('.product-card-img img');
-        var name = card.querySelector('h4') ? card.querySelector('h4').textContent : '';
-        var brand = card.querySelector('.product-brand') ? card.querySelector('.product-brand').textContent : '';
-        return { src: cardImg ? cardImg.src : '', alt: cardImg ? cardImg.alt : '', name: name, brand: brand };
-      }
 
-      function openLightbox(index) {
-        currentIndex = index;
-        var data = getCardData(allCards[currentIndex]);
-        img.src = data.src;
-        img.alt = data.alt;
-        caption.textContent = data.name + (data.brand ? ', ' + data.brand : '');
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-        img.src = '';
-      }
-
-      function navigate(dir) {
-        currentIndex = (currentIndex + dir + allCards.length) % allCards.length;
-        var data = getCardData(allCards[currentIndex]);
-        img.src = data.src;
-        img.alt = data.alt;
-        caption.textContent = data.name + (data.brand ? ', ' + data.brand : '');
-      }
-
-      allCards.forEach(function(card, index) {
-        card.addEventListener('click', function() { openLightbox(index); });
-      });
-
-      document.getElementById('inspirationClose').addEventListener('click', closeLightbox);
-      document.getElementById('inspirationPrev').addEventListener('click', function() { navigate(-1); });
-      document.getElementById('inspirationNext').addEventListener('click', function() { navigate(1); });
-      lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
-
-      document.addEventListener('keydown', function(e) {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') navigate(-1);
-        if (e.key === 'ArrowRight') navigate(1);
-      });
-    })();
-  </script>
-
-  <script>
-    // Mobile menu
-    (function() {
-      var toggle = document.querySelector('.mobile-menu-toggle');
-      var nav = document.getElementById('mobileNav');
-      var overlay = document.getElementById('mobileOverlay');
-      if (!toggle) return;
-      function closeMenu() {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      toggle.addEventListener('click', function() {
-        var isOpen = nav.classList.contains('active');
-        if (isOpen) { closeMenu(); }
-        else {
-          toggle.classList.add('active');
-          nav.classList.add('active');
-          overlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-      overlay.addEventListener('click', closeMenu);
-    })();
-  </script>
+  
 </body>
 </html>
